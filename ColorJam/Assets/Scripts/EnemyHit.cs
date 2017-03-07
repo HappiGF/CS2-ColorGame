@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class EnemyHit : MonoBehaviour {
 
+    public float damg;
+
 	void OnTriggerEnter (Collider col) { 
 		if (col.gameObject.name == "EnemyRed" && this.name == "projectileRed(Clone)")
         {
-            Destroy(col.gameObject);
-            Destroy(gameObject);
+            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
         }
         else if (col.gameObject.name == "EnemyBlue" && this.name == "projectileBlue(Clone)")
         {
-            Destroy(col.gameObject);
-            Destroy(gameObject);
+            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
         }
         else if (col.gameObject.name == "EnemyYellow" && this.name == "projectileYellow(Clone)")
         {
-            Destroy(col.gameObject);
-            Destroy(gameObject);
+            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
         }
+        Destroy(gameObject);
     }
 }
