@@ -8,15 +8,16 @@ public class PlayerHealth : MonoBehaviour {
 
     public float maxHealth;
     public float currentHealth;
-	public Text text;
+	Canvas canvas;
 
 	void Start () {
-        currentHealth = maxHealth;	
+        currentHealth = maxHealth;
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 	}
 	
 	public void PlayerHit(float damg) {
         currentHealth -= damg;
-		text.GetComponent<UIManager> ().UpdateHealth (currentHealth);
+		canvas.GetComponent<UIManager> ().UpdateHealth (currentHealth);
 		if (currentHealth <= 0) {
 			SceneManager.LoadScene ("GameOver");
 		}

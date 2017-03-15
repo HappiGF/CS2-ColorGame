@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-	Text health;
-	// Use this for initialization
-	void Start () {
-		health = GetComponent<Text>();
-	}
+	public Text healthText;
+    public Text scoreText;
+    float score;
+
+    void Start(){
+        score = 0;
+        UpdateScore(score);
+    }
 	
 	public void UpdateHealth(float amount){
-		health.text = amount + "/100";
+		healthText.text = amount + "/100";
 	}
+
+    public void UpdateScore(float amount){
+        score += amount;
+        scoreText.text = "Score: " + score;
+    }
 }

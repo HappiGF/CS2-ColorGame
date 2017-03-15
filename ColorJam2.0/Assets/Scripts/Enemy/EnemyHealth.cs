@@ -6,16 +6,19 @@ public class EnemyHealth : MonoBehaviour {
 
     public float maxHealth;
     float currentHealth;
+    Canvas canvas;
 
 	void Start () {
         currentHealth = maxHealth;
-	}
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+    }
 
     public void WasHit(float damg) {
         currentHealth -= damg;
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            canvas.GetComponent<UIManager>().UpdateScore(10f);
         } 
     }
 }
