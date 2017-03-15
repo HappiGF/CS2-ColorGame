@@ -7,15 +7,15 @@ public class EnemyHit : MonoBehaviour {
     public float damg;
 
 	void OnTriggerEnter (Collider col) { 
-		if (col.gameObject.name == "EnemyRed" && this.name == "projectileRed(Clone)")
+		if (col.gameObject.name == "EnemyRed(Clone)" && this.name == "projectileRed(Clone)")
         {
             col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
         }
-        else if (col.gameObject.name == "EnemyBlue" && this.name == "projectileBlue(Clone)")
+		else if (col.gameObject.name == "EnemyBlue(Clone)" && this.name == "projectileBlue(Clone)")
         {
             col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
         }
-        else if (col.gameObject.name == "EnemyYellow" && this.name == "projectileYellow(Clone)")
+		else if (col.gameObject.name == "EnemyYellow(Clone)" && this.name == "projectileYellow(Clone)")
         {
             col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
         }

@@ -43,7 +43,7 @@ public class ProjectileJam : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             GameObject projectile = Instantiate(prefab) as GameObject;
-            projectile.transform.position = transform.position + transform.forward * 2;
+            projectile.transform.position = transform.position + transform.forward * 1.5f;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.velocity = transform.forward * projectileVelocity;
             Destroy(projectile, projectileLife);

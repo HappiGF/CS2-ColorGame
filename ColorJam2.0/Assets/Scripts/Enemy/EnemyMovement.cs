@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour {
 	void Start()
 	{
 		InvokeRepeating("AttackPlayer", 0.0f, attackRate);
+		Player = GameObject.Find ("Player");
 	}
 
     void Update()

@@ -7,6 +7,6 @@ public class ButtonScript : MonoBehaviour {
 
 	public void ClickMeDade()
 	{
-		SceneManager.LoadScene ("Tutorial");
+		SceneManager.LoadScene ("Jam");
 	}
 }
