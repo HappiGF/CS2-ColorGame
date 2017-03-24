@@ -28,6 +28,9 @@ public class WaveSpawner : MonoBehaviour
 
     public SpawnState state = SpawnState.COUNTING;
 
+	bool ready;
+	bool blinking;
+
     void Start()
     {
         if (spawnPoints.Length == 0)
@@ -36,6 +39,8 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveCountdown = timeBetweenWaves;
+		ready = false;
+		StartCoroutine (GameObject.Find ("Canvas").GetComponent<UIManager> ().BlinkText ());
     }
 
     void Update()
@@ -44,44 +49,47 @@ public class WaveSpawner : MonoBehaviour
         {
             if (!EnemyIsAlive())
             {
-                WaveCompleted();
+				WaveCompleted ();
+				StartCoroutine (GameObject.Find ("Canvas").GetComponent<UIManager> ().BlinkText ());
             }
             else
             {
                 return;
             }
         }
-        if (waveCountdown <= 0)
-        {
-            if (state != SpawnState.SPAWING)
-            {
-                StartCoroutine(SpawnWave(waves[nextWave]));
-            }
-        }
-        else
-        {
-            waveCountdown -= Time.deltaTime;
-        }
+		if (ready) {
+			if (waveCountdown <= 0) {
+				if (state != SpawnState.SPAWING) {
+					StartCoroutine (SpawnWave (waves [nextWave]));
+					ready = false;
+				}
+			}
+			else
+			{
+				waveCountdown -= Time.deltaTime;
+			}
+		}
+		if (Input.GetKeyDown (KeyCode.X)) {
+			ready = true; 
+			StopCoroutine (GameObject.Find ("Canvas").GetComponent<UIManager> ().BlinkText ());
+		}
     }
 
     void WaveCompleted()
     {
         Debug.Log("Wave Completed");
-        StartCoroutine(GameObject.Find("Canvas").GetComponent<UIManager>().BlinkText());
-        //HOW DO I MAKE IT STOP DOING STUFF UNTIL PLAYER PRESSES X
-        StopCoroutine(GameObject.Find("Canvas").GetComponent<UIManager>().BlinkText());
-        state = SpawnState.COUNTING;
-        waveCountdown = timeBetweenWaves;
+		state = SpawnState.COUNTING;
+		waveCountdown = timeBetweenWaves;
 
-        if (nextWave + 1 > waves.Length - 1)
-        {
-            nextWave = 0;
-            Debug.Log("ALL WAVES COMPLETE! Looping...");
-        }
-        else
-        {
-            nextWave++;
-        }
+		if (nextWave + 1 > waves.Length - 1)
+		{
+			nextWave = 0;
+			Debug.Log("ALL WAVES COMPLETE! Looping...");
+		}
+		else
+		{
+			nextWave++;
+		}        
     }
 
     bool EnemyIsAlive()
@@ -120,7 +128,6 @@ public class WaveSpawner : MonoBehaviour
         if (_enemies.Length > 1)
         {
             int ran = Random.Range(1, 11);
-            Debug.Log(ran);
             if (ran <= 2)
             {
                 //yellow
