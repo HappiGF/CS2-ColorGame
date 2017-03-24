@@ -2,106 +2,146 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveSpawner : MonoBehaviour {
+public class WaveSpawner : MonoBehaviour
+{
 
-	public enum SpawnState { SPAWING, WAITING, COUNTING };
+    public enum SpawnState { SPAWING, WAITING, COUNTING };
 
-	[System.Serializable]
-	public class Wave {
-			public string name;
-			public Transform[] enemies;
-			public int count;
-			public float rate;
-	}
+    [System.Serializable]
+    public class Wave
+    {
+        public string name;
+        public Transform[] enemies;
+        public int count;
+        public float rate;
+    }
 
-	public Wave[] waves;
-	private int nextWave = 0;
+    public Wave[] waves;
+    private int nextWave = 0;
 
-	public Transform[] spawnPoints;
+    public Transform[] spawnPoints;
 
-	public float timeBetweenWaves = 5f;
-	public float waveCountdown;
+    public float timeBetweenWaves = 5f;
+    public float waveCountdown;
 
-	private float searchCountdown = 1f;
+    private float searchCountdown = 1f;
 
-	public SpawnState state = SpawnState.COUNTING;
+    public SpawnState state = SpawnState.COUNTING;
 
-	void Start() {
-		if (spawnPoints.Length == 0) {
-			Debug.LogError ("No spawn points referenced.");
-		}
+    void Start()
+    {
+        if (spawnPoints.Length == 0)
+        {
+            Debug.LogError("No spawn points referenced.");
+        }
 
-		waveCountdown = timeBetweenWaves;
-	}
+        waveCountdown = timeBetweenWaves;
+    }
 
-	void Update () {
-		if (state == SpawnState.WAITING) {
-			if (!EnemyIsAlive ()) {
-				WaveCompleted ();
-			} else {
-				return;
-			}
-		}
-		if (waveCountdown <= 0) {
-			if (state != SpawnState.SPAWING) {
-				StartCoroutine (SpawnWave (waves [nextWave]));
-			}
-		} else {
-			waveCountdown -= Time.deltaTime;
-		}
-	}
+    void Update()
+    {
+        if (state == SpawnState.WAITING)
+        {
+            if (!EnemyIsAlive())
+            {
+                WaveCompleted();
+            }
+            else
+            {
+                return;
+            }
+        }
+        if (waveCountdown <= 0)
+        {
+            if (state != SpawnState.SPAWING)
+            {
+                StartCoroutine(SpawnWave(waves[nextWave]));
+            }
+        }
+        else
+        {
+            waveCountdown -= Time.deltaTime;
+        }
+    }
 
-	void WaveCompleted() {
-		Debug.Log ("Wave Completed");
+    void WaveCompleted()
+    {
+        Debug.Log("Wave Completed");
+        StartCoroutine(GameObject.Find("Canvas").GetComponent<UIManager>().BlinkText());
+        //HOW DO I MAKE IT STOP DOING STUFF UNTIL PLAYER PRESSES X
+        StopCoroutine(GameObject.Find("Canvas").GetComponent<UIManager>().BlinkText());
+        state = SpawnState.COUNTING;
+        waveCountdown = timeBetweenWaves;
 
-		state = SpawnState.COUNTING;
-		waveCountdown = timeBetweenWaves;
+        if (nextWave + 1 > waves.Length - 1)
+        {
+            nextWave = 0;
+            Debug.Log("ALL WAVES COMPLETE! Looping...");
+        }
+        else
+        {
+            nextWave++;
+        }
+    }
 
-		if (nextWave + 1 > waves.Length - 1) {
-			nextWave = 0;
-			Debug.Log ("ALL WAVES COMPLETE! Looping...");
-		} else {
-			nextWave++;
-		}
-	}
+    bool EnemyIsAlive()
+    {
+        searchCountdown -= Time.deltaTime;
+        if (searchCountdown <= 0f)
+        {
+            searchCountdown = 1f;
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
-	bool EnemyIsAlive(){
-		searchCountdown -= Time.deltaTime;
-		if (searchCountdown <= 0f) {
-			searchCountdown = 1f;
-			if (GameObject.FindGameObjectsWithTag ("Enemy").Length == 0) {
-				return false;
-			}
-		}
-		return true;
-	}
+    IEnumerator SpawnWave(Wave _wave)
+    {
+        Debug.Log("Spawning Wave: " + _wave.count);
+        state = SpawnState.SPAWING;
 
-	IEnumerator SpawnWave(Wave _wave) {
-		Debug.Log ("Spawning Wave: " + _wave.count);
-		state = SpawnState.SPAWING;
+        for (int i = 0; i < _wave.count; i++)
+        {
+            SpawnEnemy(_wave.enemies);
+            yield return new WaitForSeconds(1f / _wave.rate);
+        }
 
-		for (int i = 0; i < _wave.count; i++) {
-			SpawnEnemy (_wave.enemies);
-			yield return new WaitForSeconds (1f / _wave.rate);
-		}
+        state = SpawnState.WAITING;
 
-		state = SpawnState.WAITING;
+        yield break;
+    }
 
-		yield break;
-	}
-
-	void SpawnEnemy (Transform[] _enemies) {
-		Transform _enemy;
-		if (_enemies.Length > 1) {
-			int ran = Random.Range (0, 10);
-			if (ran < 2) {
-				_enemy = _enemies[3]
-			}
-		} else {
-			_enemy = _enemies[0];
-		}
-		Transform _enemy = _enemies [Random.Range (0, _enemies.Length)];
-		Transform _sp = spawnPoints [Random.Range (0, spawnPoints.Length)];
-		Instantiate (_enemy, _sp.position, _sp.rotation);
-	}
+    void SpawnEnemy(Transform[] _enemies)
+    {
+        Transform _enemy;
+        if (_enemies.Length > 1)
+        {
+            int ran = Random.Range(1, 11);
+            Debug.Log(ran);
+            if (ran <= 2)
+            {
+                //yellow
+                _enemy = _enemies[2];
+            }
+            else if (ran >= 8)
+            {
+                //blue
+                _enemy = _enemies[1];
+            }
+            else
+            {
+                //red
+                _enemy = _enemies[0];
+            }
+        }
+        else
+        {
+            _enemy = _enemies[0];
+        }
+        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(_enemy, _sp.position, _sp.rotation);
+    }
 }

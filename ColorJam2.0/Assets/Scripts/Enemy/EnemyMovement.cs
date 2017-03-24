@@ -36,7 +36,6 @@ public class EnemyMovement : MonoBehaviour {
 	{
 		if (Vector3.Distance (transform.position, Player.transform.position) < minDist + 0.01f) 
 		{
-			Debug.Log ("player was hit");
 			Player.GetComponent<PlayerHealth> ().PlayerHit (10);
 		}
 	}

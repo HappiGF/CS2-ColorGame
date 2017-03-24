@@ -5,18 +5,18 @@ using UnityEngine;
 public class ProjectileJam : MonoBehaviour {
 
 	GameObject prefab;
-    GameObject prefabRed;
-    GameObject prefabBlue;
-    GameObject prefabYellow;
+    GameObject projectilRed;
+    GameObject projectileBlue;
+    GameObject projectileYellow;
 	public float projectileLife;
 	public float projectileVelocity;
     public float repeatRate;
 
 	void Start () {
-		prefabRed = Resources.Load ("Projectiles/projectileRed") as GameObject;
-        prefabBlue = Resources.Load("Projectiles/projectileBlue") as GameObject;
-        prefabYellow = Resources.Load("Projectiles/projectileYellow") as GameObject;
-        prefab = prefabRed;
+		projectilRed = Resources.Load ("Projectiles/projectileRed") as GameObject;
+        projectileBlue = Resources.Load("Projectiles/projectileBlue") as GameObject;
+        projectileYellow = Resources.Load("Projectiles/projectileYellow") as GameObject;
+        prefab = projectilRed;
         InvokeRepeating("Shoot", 0.0f, repeatRate);
 	}
 
@@ -24,17 +24,17 @@ public class ProjectileJam : MonoBehaviour {
     {
         if (Input.GetKeyDown("1"))
         {
-            prefab = prefabRed;
+            prefab = projectilRed;
             Debug.Log("red");
         }
         if (Input.GetKeyDown("2"))
         {
-            prefab = prefabBlue;
+            prefab = projectileBlue;
             Debug.Log("blue");
         }
         if (Input.GetKeyDown("3"))
         {
-            prefab = prefabYellow;
+            prefab = projectileYellow;
             Debug.Log("yellow");
         }
     }
@@ -43,7 +43,7 @@ public class ProjectileJam : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             GameObject projectile = Instantiate(prefab) as GameObject;
-            projectile.transform.position = transform.position + transform.forward * 1.5f;
+            projectile.transform.position = transform.position + transform.forward * 1.1f;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.velocity = transform.forward * projectileVelocity;
             Destroy(projectile, projectileLife);
