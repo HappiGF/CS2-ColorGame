@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour {
     public Text flashingText;
     public Text waveCompleteText;
     public GameObject master;
-
+	public GameObject completed;
     float score;
 
     void Start(){
@@ -34,9 +34,9 @@ public class UIManager : MonoBehaviour {
         while (true)
         {
             flashingText.text = "";
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.6f);
             flashingText.text = "Ready [x]";
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.6f);
         }
     }
 
@@ -45,15 +45,8 @@ public class UIManager : MonoBehaviour {
         flashingText.text = "";
     }
 
-    public void WaveComplete(bool show)
-    {
-        if (show)
-        {
-            waveCompleteText.text = "Wave " + master.GetComponent<WaveSpawner>().waveName + " Complete!";
-        }
-        else
-        {
-            waveCompleteText.text = "";
-        }
-    }
+	public void CompletedLevelAnim(bool show)
+	{
+		completed.SetActive (show);
+	}
 }
