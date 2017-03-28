@@ -30,7 +30,8 @@ public class WaveSpawner : MonoBehaviour
 
 	bool ready;
 	bool blinking;
-	bool show;
+
+    string waveName;
 
     IEnumerator blinkingText;
 
@@ -41,9 +42,9 @@ public class WaveSpawner : MonoBehaviour
             Debug.LogError("No spawn points referenced.");
         }
 
+        waveName = waves[0].name;
         waveCountdown = timeBetweenWaves;
         ready = false;
-		show = true;
         blinkingText = GameObject.Find("Canvas").GetComponent<UIManager>().BlinkText();
         StartCoroutine (blinkingText);
     }
@@ -55,8 +56,6 @@ public class WaveSpawner : MonoBehaviour
             if (!EnemyIsAlive())
             {
 				WaveCompleted ();
-				GameObject.Find ("Canvas").GetComponent<UIManager> ().CompletedLevelAnim (show);
-				show = false;
 				StartCoroutine (blinkingText);
             }
             else
@@ -78,17 +77,17 @@ public class WaveSpawner : MonoBehaviour
 		}
 		if (Input.GetKeyDown (KeyCode.X)) {
 			ready = true; 
-			show = false;
 			StopCoroutine (blinkingText);
             GameObject.Find("Canvas").GetComponent<UIManager>().ReadyOff();
-			GameObject.Find ("Canvas").GetComponent<UIManager> ().CompletedLevelAnim (show);
+            GameObject.Find("Canvas").GetComponent<UIManager>().CompletedLevelAnim(false, "");
         }
     }
 
     void WaveCompleted()
     {
         Debug.Log("Wave Completed");
-		state = SpawnState.COUNTING;
+        GameObject.Find("Canvas").GetComponent<UIManager>().CompletedLevelAnim(true, waveName);
+        state = SpawnState.COUNTING;
 		waveCountdown = timeBetweenWaves;
 
 		if (nextWave + 1 > waves.Length - 1)
@@ -99,6 +98,7 @@ public class WaveSpawner : MonoBehaviour
 		else
 		{
 			nextWave++;
+            waveName = waves[nextWave].name;
 		}        
     }
 

@@ -8,16 +8,17 @@ public class UIManager : MonoBehaviour {
 	public Text healthText;
     public Text scoreText;
     public Text flashingText;
-    public Text waveCompleteText;
     public GameObject master;
 	public GameObject completed;
+    public Text waveName;
     float score;
 
     void Start(){
         score = 0;
         UpdateScore(score);
         flashingText.text = "";
-        waveCompleteText.text = "";
+        waveName.text = "";
+        CompletedLevelAnim(false, "");
     }
 	
 	public void UpdateHealth(float amount){
@@ -45,8 +46,14 @@ public class UIManager : MonoBehaviour {
         flashingText.text = "";
     }
 
-	public void CompletedLevelAnim(bool show)
+	public void CompletedLevelAnim(bool show, string name)
 	{
+        setWaveName(name);
 		completed.SetActive (show);
 	}
+
+    void setWaveName(string name)
+    {
+        waveName.text = name;
+    }
 }
