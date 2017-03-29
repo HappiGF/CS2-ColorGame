@@ -13,12 +13,12 @@ public class EnemyHealth : MonoBehaviour {
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
     }
 
-    public void WasHit(float damg) {
+	public void WasHit(float damg, int score) {
         currentHealth -= damg;
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            canvas.GetComponent<UIManager>().UpdateScore(10f);
+            canvas.GetComponent<UIManager>().UpdateScore(score);
         } 
     }
 }

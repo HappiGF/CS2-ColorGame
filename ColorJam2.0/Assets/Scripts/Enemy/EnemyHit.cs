@@ -9,15 +9,15 @@ public class EnemyHit : MonoBehaviour {
 	void OnTriggerEnter (Collider col) { 
 		if (col.gameObject.name == "EnemyRed(Clone)" && this.name == "projectileRed(Clone)")
         {
-            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
+            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg, 10);
         }
 		else if (col.gameObject.name == "EnemyBlue(Clone)" && this.name == "projectileBlue(Clone)")
         {
-            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
+            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg, 20);
         }
 		else if (col.gameObject.name == "EnemyYellow(Clone)" && this.name == "projectileYellow(Clone)")
         {
-            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg);
+            col.gameObject.GetComponent<EnemyHealth>().WasHit(damg, 50);
         }
         Destroy(gameObject);
     }

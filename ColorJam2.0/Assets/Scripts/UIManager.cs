@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour {
 
     public void UpdateScore(float amount){
         score += amount;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "" + score;
     }
 
     public IEnumerator BlinkText()
