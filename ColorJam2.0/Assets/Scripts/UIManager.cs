@@ -12,11 +12,11 @@ public class UIManager : MonoBehaviour {
 	public GameObject completed;
     public Text waveName;
     float score;
-	public Text RedC;
+	public Text redCText;
 	float redC;
-	public Text BlueC;
+	public Text blueCText;
 	float blueC;
-	public Text YellowC;
+	public Text yellowCText;
 	float yellowC;
 
     void Start(){
@@ -68,6 +68,23 @@ public class UIManager : MonoBehaviour {
 
 	public void updateRedC()
 	{
+		int amount = Random.Range (1, 16);
+		redC += amount;
+		redCText.text = "" + redC;
 
+	}
+
+	public void updateBlueC()
+	{
+		int amount = Random.Range (5, 21);
+		blueC += amount;
+		blueCText.text = "" + blueC;
+	}
+
+	public void updatetYellowC()
+	{
+		int amount = Random.Range (10, 21);
+		yellowC += amount;
+		yellowCText.text = "" + yellowC;
 	}
 }

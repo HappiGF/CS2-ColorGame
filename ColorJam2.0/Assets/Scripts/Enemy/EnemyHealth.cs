@@ -13,11 +13,22 @@ public class EnemyHealth : MonoBehaviour {
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
     }
 
-	public void WasHit(float damg, int score) {
+	public void WasHit(float damg, int score, string enemy) {
         currentHealth -= damg;
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+			if (enemy == "r") {
+				Debug.Log ("update red");
+				canvas.GetComponent<UIManager> ().updateRedC ();
+			} else if (enemy == "b") {
+				Debug.Log ("update blue");
+				canvas.GetComponent<UIManager> ().updateBlueC ();
+			} else if (enemy == "y"){
+				Debug.Log ("update yellow");
+				canvas.GetComponent<UIManager> ().updatetYellowC ();
+			}
+			Debug.Log ("update score");
             canvas.GetComponent<UIManager>().UpdateScore(score);
         } 
     }
