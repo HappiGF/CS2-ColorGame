@@ -21,4 +21,9 @@ public class EnemyHealth : MonoBehaviour {
             canvas.GetComponent<UIManager>().UpdateScore(score);
         } 
     }
+
+	public void setMaxHealth(float max){
+		maxHealth = max;
+		currentHealth = maxHealth;
+	}
 }

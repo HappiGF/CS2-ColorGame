@@ -12,9 +12,18 @@ public class UIManager : MonoBehaviour {
 	public GameObject completed;
     public Text waveName;
     float score;
+	public Text RedC;
+	float redC;
+	public Text BlueC;
+	float blueC;
+	public Text YellowC;
+	float yellowC;
 
     void Start(){
         score = 0;
+		redC = 0;
+		blueC = 0;
+		yellowC = 0;
         UpdateScore(score);
         flashingText.text = "";
         waveName.text = "";
@@ -56,4 +65,9 @@ public class UIManager : MonoBehaviour {
     {
         waveName.text = name;
     }
+
+	public void updateRedC()
+	{
+
+	}
 }
