@@ -85,11 +85,10 @@
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\ProjectileJam.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
-    <Compile Include="Assets\Scripts\UI\Buttons\Speed1Button.cs" />
-    <Compile Include="Assets\Scripts\UI\Buttons\Speed2Button.cs" />
-    <Compile Include="Assets\Scripts\UI\Buttons\Speed3Button.cs" />
-    <Compile Include="Assets\Scripts\UI\Buttons\Speed4Button.cs" />
-    <Compile Include="Assets\Scripts\UI\Buttons\Speed5Button.cs" />
+    <Compile Include="Assets\Scripts\UI\Buttons\AttackRateUpgrade.cs" />
+    <Compile Include="Assets\Scripts\UI\Buttons\DamageUpgrade.cs" />
+    <Compile Include="Assets\Scripts\UI\Buttons\HealthUpgrade.cs" />
+    <Compile Include="Assets\Scripts\UI\Buttons\SpeedUpgrade.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI\Upgrades.cs" />
     <Compile Include="Assets\Scripts\WaveSpawner.cs" />

@@ -11,6 +11,8 @@ public class ProjectileJam : MonoBehaviour {
 	public float projectileLife;
 	public float projectileVelocity;
     public float repeatRate;
+    float oldRepeatRate;
+    public float damage;
 
 	void Start () {
 		projectilRed = Resources.Load ("Projectiles/projectileRed") as GameObject;
@@ -18,10 +20,16 @@ public class ProjectileJam : MonoBehaviour {
         projectileYellow = Resources.Load("Projectiles/projectileYellow") as GameObject;
         prefab = projectilRed;
         InvokeRepeating("Shoot", 0.0f, repeatRate);
-	}
+        damage = 10;
+        oldRepeatRate = repeatRate;
+    }
 
     void Update()
     {
+        if (repeatRate != oldRepeatRate)
+        {
+            UpdateRepeatRate();
+        }
         if (Input.GetKeyDown("1"))
         {
             prefab = projectilRed;
@@ -48,5 +56,16 @@ public class ProjectileJam : MonoBehaviour {
             rb.velocity = transform.forward * projectileVelocity;
             Destroy(projectile, projectileLife);
         }
+    }
+
+    void UpdateRepeatRate()
+    {
+        CancelInvoke();
+        InvokeRepeating("Shoot", 0.0f, repeatRate);
+        oldRepeatRate = repeatRate;
+    }
+    public float Damage()
+    {
+        return damage;
     }
 }

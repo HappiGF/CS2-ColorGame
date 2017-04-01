@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour {
     }
 	
 	public void UpdateHealth(float amount){
-		healthText.text = amount + "/100";
+		healthText.text = amount + "/" + GameObject.Find("Player").GetComponent<PlayerHealth>().maxHealth;
 	}
 
     public void UpdateScore(float amount){

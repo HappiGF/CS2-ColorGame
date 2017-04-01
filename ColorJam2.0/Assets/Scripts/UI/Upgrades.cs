@@ -89,16 +89,15 @@ public class Upgrades : MonoBehaviour {
 
     void LateUpdate()
     {
+        redC = GameObject.Find("Canvas").GetComponent<UIManager>().redC;
+        blueC = GameObject.Find("Canvas").GetComponent<UIManager>().blueC;
+        yellowC = GameObject.Find("Canvas").GetComponent<UIManager>().yellowC;
+
         s1 = true;
         s2 = true;
         s3 = true;
         s4 = true;
         s5 = true;
-
-        redC = GameObject.Find("Canvas").GetComponent<UIManager>().redC;
-        blueC = GameObject.Find("Canvas").GetComponent<UIManager>().blueC;
-        yellowC = GameObject.Find("Canvas").GetComponent<UIManager>().yellowC;
-
 
         if ((redC < 200 || blueC < 150 || yellowC < 50) || s5Bought == true || s4Bought == false || s3Bought == false || s2Bought == false || s1Bought == false)
         {
@@ -112,7 +111,7 @@ public class Upgrades : MonoBehaviour {
         {
             s3 = false;
         }
-        if (redC < 50 || s2Bought == true || s1Bought == true)
+        if (redC < 50 || s2Bought == true || s1Bought == false)
         {
             s2 = false;
         }
@@ -121,10 +120,115 @@ public class Upgrades : MonoBehaviour {
             s1 = false;
         }
 
-        speed1.gameObject.SetActive(s1);
-        speed2.gameObject.SetActive(s2);
-        speed3.gameObject.SetActive(s3);
-        speed4.gameObject.SetActive(s4);
-        speed5.gameObject.SetActive(s5);
+        speed1.interactable = s1;
+        speed2.interactable = s2;
+        speed3.interactable = s3;
+        speed4.interactable = s4;
+        speed5.interactable = s5;
+
+        /*======================================================================================*/
+
+        ar1 = true;
+        ar2 = true;
+        ar3 = true;
+        ar4 = true;
+        ar5 = true;
+
+        if ((blueC < 200 || yellowC < 150 || redC < 50) || ar5Bought == true || ar4Bought == false || ar3Bought == false || ar2Bought == false || ar1Bought == false)
+        {
+            ar5 = false;
+        }
+        if ((blueC < 150 || yellowC < 100) || ar4Bought == true || ar3Bought == false || ar2Bought == false || ar1Bought == false)
+        {
+            ar4 = false;
+        }
+        if ((blueC < 100 || yellowC < 50) || ar3Bought == true || ar2Bought == false || ar1Bought == false)
+        {
+            ar3 = false;
+        }
+        if (blueC < 50 || ar2Bought == true || ar1Bought == false)
+        {
+            ar2 = false;
+        }
+        if (blueC < 10 || ar1Bought == true)
+        {
+            ar1 = false;
+        }
+
+        arate1.interactable = ar1;
+        arate2.interactable = ar2;
+        arate3.interactable = ar3;
+        arate4.interactable = ar4;
+        arate5.interactable = ar5;
+
+        /*======================================================================================*/
+
+        d1 = true;
+        d2 = true;
+        d3 = true;
+        d4 = true;
+        d5 = true;
+
+        if ((yellowC < 200 || redC < 150 || blueC < 50) || d5Bought == true || d4Bought == false || d3Bought == false || d2Bought == false || d1Bought == false)
+        {
+            d5 = false;
+        }
+        if ((yellowC < 150 || redC < 100) || d4Bought == true || d3Bought == false || d2Bought == false || d1Bought == false)
+        {
+            d4 = false;
+        }
+        if ((yellowC < 100 || redC < 50) || d3Bought == true || d2Bought == false || d1Bought == false)
+        {
+            d3 = false;
+        }
+        if (yellowC < 50 || d2Bought == true || d1Bought == false)
+        {
+            d2 = false;
+        }
+        if (yellowC < 10 || d1Bought == true)
+        {
+            d1 = false;
+        }
+
+        damage1.interactable = d1;
+        damage2.interactable = d2;
+        damage3.interactable = d3;
+        damage4.interactable = d4;
+        damage5.interactable = d5;
+
+        /*======================================================================================*/
+
+        h1 = true;
+        h2 = true;
+        h3 = true;
+        h4 = true;
+        h5 = true;
+
+        if ((yellowC < 200 || redC < 10 || blueC < 200) || h5Bought == true || h4Bought == false || h3Bought == false || h2Bought == false || h1Bought == false)
+        {
+            h5 = false;
+        }
+        if ((yellowC < 150 || blueC < 150) || h4Bought == true || h3Bought == false || h2Bought == false || h1Bought == false)
+        {
+            h4 = false;
+        }
+        if ((yellowC < 50 || blueC < 50) || h3Bought == true || h2Bought == false || h1Bought == false)
+        {
+            h3 = false;
+        }
+        if ((yellowC < 20 || blueC < 20) || h2Bought == true || h1Bought == false)
+        {
+            h2 = false;
+        }
+        if ((yellowC < 10 || blueC < 10) || h1Bought == true)
+        {
+            h1 = false;
+        }
+
+        health1.interactable = h1;
+        health2.interactable = h2;
+        health3.interactable = h3;
+        health4.interactable = h4;
+        health5.interactable = h5;
     }
 }

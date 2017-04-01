@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyHit : MonoBehaviour {
 
-    public float damg;
+    float damg;
 
-	void OnTriggerEnter (Collider col) { 
+	void OnTriggerEnter (Collider col) {
+        damg = GameObject.Find("Player").GetComponent<ProjectileJam>().Damage();
 		if (col.gameObject.name == "EnemyRed(Clone)" && this.name == "projectileRed(Clone)")
         {
             col.gameObject.GetComponent<EnemyHealth>().WasHit(damg, 10, "r");

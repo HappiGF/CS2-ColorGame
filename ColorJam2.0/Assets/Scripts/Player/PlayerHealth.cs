@@ -14,6 +14,12 @@ public class PlayerHealth : MonoBehaviour {
         currentHealth = maxHealth;
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 	}
+
+    public void UpdateHealth()
+    {
+        currentHealth = maxHealth;
+        canvas.GetComponent<UIManager>().UpdateHealth(currentHealth);
+    }
 	
 	public void PlayerHit(float damg) {
         currentHealth -= damg;

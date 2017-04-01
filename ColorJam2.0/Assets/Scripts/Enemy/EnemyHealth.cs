@@ -19,13 +19,10 @@ public class EnemyHealth : MonoBehaviour {
         {
             Destroy(gameObject);
 			if (enemy == "r") {
-				Debug.Log ("update red");
 				canvas.GetComponent<UIManager> ().updateRedC ();
-			} else if (enemy == "b") {
-				Debug.Log ("update blue");
+			} else if (enemy == "b") {;
 				canvas.GetComponent<UIManager> ().updateBlueC ();
 			} else if (enemy == "y"){
-				Debug.Log ("update yellow");
 				canvas.GetComponent<UIManager> ().updatetYellowC ();
 			}
 			Debug.Log ("update score");

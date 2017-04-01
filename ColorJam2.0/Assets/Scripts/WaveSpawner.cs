@@ -83,6 +83,7 @@ public class WaveSpawner : MonoBehaviour
 			StopCoroutine (blinkingText);
             GameObject.Find("Canvas").GetComponent<UIManager>().ReadyOff();
             GameObject.Find("Canvas").GetComponent<UIManager>().CompletedLevelAnim(false, "");
+            GameObject.Find("Player").GetComponent<PlayerHealth>().UpdateHealth();
             displayed = false;
         }
     }
