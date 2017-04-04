@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class Upgrades : MonoBehaviour {
 
+	public Text CopyScore;
+	public Text CopyRedC;
+	public Text CopyBlueC;
+	public Text CopyYellowC;
+
+	/*======================================================================================*/
+
     public Button speed1;
     public Button speed2;
     public Button speed3;
@@ -89,6 +96,11 @@ public class Upgrades : MonoBehaviour {
 
     void LateUpdate()
     {
+		CopyScore.text = "Score: " + GameObject.Find ("Canvas").GetComponent<UIManager> ().getScore();
+		CopyRedC.text = GameObject.Find ("Canvas").GetComponent<UIManager> ().getRedC();
+		CopyBlueC.text = GameObject.Find ("Canvas").GetComponent<UIManager> ().getBlueC();
+		CopyYellowC.text = GameObject.Find ("Canvas").GetComponent<UIManager> ().getYellowC();
+
         redC = GameObject.Find("Canvas").GetComponent<UIManager>().redC;
         blueC = GameObject.Find("Canvas").GetComponent<UIManager>().blueC;
         yellowC = GameObject.Find("Canvas").GetComponent<UIManager>().yellowC;

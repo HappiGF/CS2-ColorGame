@@ -109,4 +109,24 @@ public class UIManager : MonoBehaviour {
         yellowC -= amount;
         yellowCText.text = "" + yellowC;
     }
+
+	public string getScore()
+	{
+		return score + "";
+	}
+
+	public string getRedC()
+	{
+		return redC + "";
+	}
+
+	public string getBlueC()
+	{
+		return blueC + "";
+	}
+
+	public string getYellowC()
+	{
+		return yellowC + "";
+	}
 }
