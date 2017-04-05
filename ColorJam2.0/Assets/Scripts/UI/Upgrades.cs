@@ -111,23 +111,23 @@ public class Upgrades : MonoBehaviour {
         s4 = true;
         s5 = true;
 
-        if ((redC < 200 || blueC < 150 || yellowC < 50) || s5Bought == true || s4Bought == false || s3Bought == false || s2Bought == false || s1Bought == false)
+        if ((redC < 500 || blueC < 200 || yellowC < 50) || s5Bought == true || s4Bought == false || s3Bought == false || s2Bought == false || s1Bought == false)
         {
             s5 = false;
         }
-        if ((redC < 150 || blueC < 100) || s4Bought == true || s3Bought == false || s2Bought == false || s1Bought == false)
+        if ((redC < 400 || blueC < 100) || s4Bought == true || s3Bought == false || s2Bought == false || s1Bought == false)
         {
             s4 = false;
         }
-        if ((redC < 100 || blueC < 50) || s3Bought == true || s2Bought == false || s1Bought == false)
+        if ((redC < 200 || blueC < 50) || s3Bought == true || s2Bought == false || s1Bought == false)
         {
             s3 = false;
         }
-        if (redC < 50 || s2Bought == true || s1Bought == false)
+        if (redC < 100 || s2Bought == true || s1Bought == false)
         {
             s2 = false;
         }
-        if (redC < 10 || s1Bought == true)
+        if (redC < 50 || s1Bought == true)
         {
             s1 = false;
         }
@@ -146,23 +146,23 @@ public class Upgrades : MonoBehaviour {
         ar4 = true;
         ar5 = true;
 
-        if ((blueC < 200 || yellowC < 150 || redC < 50) || ar5Bought == true || ar4Bought == false || ar3Bought == false || ar2Bought == false || ar1Bought == false)
+        if ((blueC < 500 || yellowC < 200 || redC < 50) || ar5Bought == true || ar4Bought == false || ar3Bought == false || ar2Bought == false || ar1Bought == false)
         {
             ar5 = false;
         }
-        if ((blueC < 150 || yellowC < 100) || ar4Bought == true || ar3Bought == false || ar2Bought == false || ar1Bought == false)
+        if ((blueC < 400 || yellowC < 100) || ar4Bought == true || ar3Bought == false || ar2Bought == false || ar1Bought == false)
         {
             ar4 = false;
         }
-        if ((blueC < 100 || yellowC < 50) || ar3Bought == true || ar2Bought == false || ar1Bought == false)
+        if ((blueC < 200 || yellowC < 50) || ar3Bought == true || ar2Bought == false || ar1Bought == false)
         {
             ar3 = false;
         }
-        if (blueC < 50 || ar2Bought == true || ar1Bought == false)
+        if (blueC < 100 || ar2Bought == true || ar1Bought == false)
         {
             ar2 = false;
         }
-        if (blueC < 10 || ar1Bought == true)
+        if (blueC < 50 || ar1Bought == true)
         {
             ar1 = false;
         }
@@ -181,23 +181,23 @@ public class Upgrades : MonoBehaviour {
         d4 = true;
         d5 = true;
 
-        if ((yellowC < 200 || redC < 150 || blueC < 50) || d5Bought == true || d4Bought == false || d3Bought == false || d2Bought == false || d1Bought == false)
+        if ((yellowC < 500 || redC < 200 || blueC < 50) || d5Bought == true || d4Bought == false || d3Bought == false || d2Bought == false || d1Bought == false)
         {
             d5 = false;
         }
-        if ((yellowC < 150 || redC < 100) || d4Bought == true || d3Bought == false || d2Bought == false || d1Bought == false)
+        if ((yellowC < 400 || redC < 100) || d4Bought == true || d3Bought == false || d2Bought == false || d1Bought == false)
         {
             d4 = false;
         }
-        if ((yellowC < 100 || redC < 50) || d3Bought == true || d2Bought == false || d1Bought == false)
+        if ((yellowC < 200 || redC < 50) || d3Bought == true || d2Bought == false || d1Bought == false)
         {
             d3 = false;
         }
-        if (yellowC < 50 || d2Bought == true || d1Bought == false)
+        if (yellowC < 100 || d2Bought == true || d1Bought == false)
         {
             d2 = false;
         }
-        if (yellowC < 10 || d1Bought == true)
+        if (yellowC < 50 || d1Bought == true)
         {
             d1 = false;
         }
@@ -216,23 +216,23 @@ public class Upgrades : MonoBehaviour {
         h4 = true;
         h5 = true;
 
-        if ((yellowC < 200 || redC < 10 || blueC < 200) || h5Bought == true || h4Bought == false || h3Bought == false || h2Bought == false || h1Bought == false)
+        if ((yellowC < 500 || redC < 50 || blueC < 500) || h5Bought == true || h4Bought == false || h3Bought == false || h2Bought == false || h1Bought == false)
         {
             h5 = false;
         }
-        if ((yellowC < 150 || blueC < 150) || h4Bought == true || h3Bought == false || h2Bought == false || h1Bought == false)
+        if ((yellowC < 250 || blueC < 250) || h4Bought == true || h3Bought == false || h2Bought == false || h1Bought == false)
         {
             h4 = false;
         }
-        if ((yellowC < 50 || blueC < 50) || h3Bought == true || h2Bought == false || h1Bought == false)
+        if ((yellowC < 150 || blueC < 150) || h3Bought == true || h2Bought == false || h1Bought == false)
         {
             h3 = false;
         }
-        if ((yellowC < 20 || blueC < 20) || h2Bought == true || h1Bought == false)
+        if ((yellowC < 100 || blueC < 100) || h2Bought == true || h1Bought == false)
         {
             h2 = false;
         }
-        if ((yellowC < 10 || blueC < 10) || h1Bought == true)
+        if ((yellowC < 50 || blueC < 50) || h1Bought == true)
         {
             h1 = false;
         }

@@ -129,8 +129,8 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("Spawning Wave: " + _wave.count);
         state = SpawnState.SPAWING;
 
-        _wave.rate = (float)(_wave.rate + 0.2);
-        _wave.count = (int)(1.5 * enemyWaveMultiplier);
+        _wave.rate = (float)(_wave.rate + 0.05);
+        _wave.count = (int)(1.2 * enemyWaveMultiplier);
 
         for (int i = 0; i < _wave.count; i++)
         {
@@ -172,4 +172,8 @@ public class WaveSpawner : MonoBehaviour
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);
     }
+
+	public int getWaveNumber(){
+		return waveNumber;
+	}
 }

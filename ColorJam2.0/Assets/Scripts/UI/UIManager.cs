@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour {
 
 	public void updateRedC()
 	{
-		int amount = Random.Range (1, 16);
+		int amount = Random.Range (5, 16);
 		redC += amount;
 		redCText.text = "" + redC;
 	}
@@ -86,7 +86,7 @@ public class UIManager : MonoBehaviour {
 
     public void updateBlueC()
 	{
-		int amount = Random.Range (5, 21);
+		int amount = Random.Range (10, 21);
 		blueC += amount;
 		blueCText.text = "" + blueC;
 	}
@@ -99,7 +99,7 @@ public class UIManager : MonoBehaviour {
 
     public void updatetYellowC()
 	{
-		int amount = Random.Range (10, 21);
+		int amount = Random.Range (15, 26);
 		yellowC += amount;
 		yellowCText.text = "" + yellowC;
 	}

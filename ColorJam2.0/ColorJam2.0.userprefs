@@ -1,12 +1,26 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/WaveSpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/UIManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerHealth.cs" Line="16" Column="3" />
-      <File FileName="Assets/Scripts/WaveSpawner.cs" Line="82" Column="18" />
-      <File FileName="Assets/Scripts/Enemy/EnemyHit.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/EnemyHealth.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/WaveSpawner.cs" Line="133" Column="32" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/PlayerHealth.cs" Line="16" Column="3" NotebookId="1" />
+      <File FileName="Assets/Scripts/Enemy/EnemyHit.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Enemy/EnemyHealth.cs" Line="27" Column="5" NotebookId="1" />
+      <File FileName="Assets/Scripts/Enemy/EnemyMovement.cs" Line="30" Column="43" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Upgrades.cs" Line="219" Column="39" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/ProjectileJam.cs" Line="1" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/UIManager.cs" Line="102" Column="36" NotebookId="1" />
     </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="1144" Y="23" Width="640" Height="970">
+        <Files>
+          <File FileName="Assets/Scripts/UI/Buttons/SpeedUpgrade.cs" Line="50" Column="26" />
+          <File FileName="Assets/Scripts/UI/Buttons/AttackRateUpgrade.cs" Line="43" Column="28" />
+          <File FileName="Assets/Scripts/UI/Buttons/DamageUpgrade.cs" Line="44" Column="25" />
+          <File FileName="Assets/Scripts/UI/Buttons/HealthUpgrade.cs" Line="49" Column="24" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

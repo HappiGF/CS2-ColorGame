@@ -14,7 +14,7 @@ public class SpeedUpgrade : MonoBehaviour {
         if (name == "Speed1")
         {
             GameObject.Find("UpgradeBackPanel").GetComponent<Upgrades>().s1Bought = true;
-            redCost = 10;
+            redCost = 50;
             blueCost = 0;
             yellowCost = 0;
             multiplier = 1;
@@ -22,7 +22,7 @@ public class SpeedUpgrade : MonoBehaviour {
         else if (name == "Speed2")
         {
             GameObject.Find("UpgradeBackPanel").GetComponent<Upgrades>().s2Bought = true;
-            redCost = 50;
+            redCost = 100;
             blueCost = 0;
             yellowCost = 0;
             multiplier = 2;
@@ -30,7 +30,7 @@ public class SpeedUpgrade : MonoBehaviour {
         else if (name == "Speed3")
         {
             GameObject.Find("UpgradeBackPanel").GetComponent<Upgrades>().s3Bought = true;
-            redCost = 100;
+            redCost = 200;
             blueCost = 50;
             yellowCost = 0;
             multiplier = 3;
@@ -38,7 +38,7 @@ public class SpeedUpgrade : MonoBehaviour {
         else if (name == "Speed4")
         {
             GameObject.Find("UpgradeBackPanel").GetComponent<Upgrades>().s4Bought = true;
-            redCost = 150;
+            redCost = 400;
             blueCost = 100;
             yellowCost = 0;
             multiplier = 4;
@@ -46,8 +46,8 @@ public class SpeedUpgrade : MonoBehaviour {
         else if (name == "Speed5")
         {
             GameObject.Find("UpgradeBackPanel").GetComponent<Upgrades>().s5Bought = true;
-            redCost = 200;
-            blueCost = 150;
+            redCost = 500;
+            blueCost = 200;
             yellowCost = 50;
             multiplier = 5;
         }

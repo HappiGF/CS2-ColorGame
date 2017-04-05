@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
-    public float maxHealth;
-    float currentHealth;
+    public int maxHealth;
+    public float currentHealth;
     Canvas canvas;
 
 	void Start () {
-        currentHealth = maxHealth;
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+		Spawn();
     }
 
 	public void WasHit(float damg, int score, string enemy) {
@@ -25,13 +25,19 @@ public class EnemyHealth : MonoBehaviour {
 			} else if (enemy == "y"){
 				canvas.GetComponent<UIManager> ().updatetYellowC ();
 			}
-			Debug.Log ("update score");
             canvas.GetComponent<UIManager>().UpdateScore(score);
         } 
     }
 
-	public void setMaxHealth(float max){
-		maxHealth = max;
+	void Spawn() {
+		int waveNum = GameObject.Find ("Master").GetComponent<WaveSpawner> ().getWaveNumber ();
+		if (name == "EnemyBlue(Clone)") {
+			maxHealth = (int)(40 + waveNum * 0.4);
+		} else if (name == "EnemyRed(Clone)") {
+			maxHealth = (int)(20 + waveNum * 0.4);
+		} else if (name == "EnemyYellow(Clone)") {
+			maxHealth = (int)(100 + waveNum * 0.4);
+		}
 		currentHealth = maxHealth;
 	}
 }
