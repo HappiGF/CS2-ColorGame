@@ -23,16 +23,16 @@ public class HealthUpgrade : MonoBehaviour {
         {
             GameObject.Find("UpgradeBackPanel").GetComponent<Upgrades>().h2Bought = true;
             redCost = 0;
-            blueCost = 50;
-            yellowCost = 50;
+            blueCost = 20;
+            yellowCost = 20;
             multiplier = 2;
         }
         else if (name == "Health3")
         {
             GameObject.Find("UpgradeBackPanel").GetComponent<Upgrades>().h3Bought = true;
             redCost = 0;
-            blueCost = 100;
-            yellowCost = 100;
+            blueCost = 50;
+            yellowCost = 50;
             multiplier = 3;
         }
         else if (name == "Health4")

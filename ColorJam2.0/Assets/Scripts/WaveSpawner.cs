@@ -18,6 +18,8 @@ public class WaveSpawner : MonoBehaviour
 
     public Wave[] waves;
     private int nextWave = 0;
+    public int waveNumber = 1;
+    int enemyWaveMultiplier = 5;
 
     public Transform[] spawnPoints;
 
@@ -33,8 +35,6 @@ public class WaveSpawner : MonoBehaviour
 
     bool displayed;
 
-    string waveName;
-
     IEnumerator blinkingText;
 
     void Start()
@@ -43,8 +43,6 @@ public class WaveSpawner : MonoBehaviour
         {
             Debug.LogError("No spawn points referenced.");
         }
-
-        waveName = waves[0].name;
         waveCountdown = timeBetweenWaves;
         ready = false;
         displayed = false;
@@ -93,7 +91,7 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("Wave Completed");
         if (displayed == false)
         {
-            GameObject.Find("Canvas").GetComponent<UIManager>().CompletedLevelAnim(true, waveName);
+            GameObject.Find("Canvas").GetComponent<UIManager>().CompletedLevelAnim(true, waveNumber + "");
             displayed = true;
         }
         state = SpawnState.COUNTING;
@@ -107,8 +105,9 @@ public class WaveSpawner : MonoBehaviour
 		else
 		{
 			nextWave++;
-            waveName = waves[nextWave].name;
-		}        
+		}
+        waveNumber++;
+        enemyWaveMultiplier++;       
     }
 
     bool EnemyIsAlive()
@@ -129,6 +128,9 @@ public class WaveSpawner : MonoBehaviour
     {
         Debug.Log("Spawning Wave: " + _wave.count);
         state = SpawnState.SPAWING;
+
+        _wave.rate = (float)(_wave.rate + 0.2);
+        _wave.count = (int)(1.5 * enemyWaveMultiplier);
 
         for (int i = 0; i < _wave.count; i++)
         {
