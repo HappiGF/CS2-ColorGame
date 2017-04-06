@@ -20,13 +20,13 @@ public class EnemyMovement : MonoBehaviour {
 	void Spawn() {
 		int waveNum = GameObject.Find ("Master").GetComponent<WaveSpawner> ().getWaveNumber ();
 		if (name == "EnemyRed(Clone)") {
-			Speed = (float)(9 + waveNum * 0.15);
+			Speed = (float)(9 + waveNum * 0.2);
 			damgPlayer = (int)(5 + waveNum * 0.18);
 		} else if (name == "EnemyBlue(Clone)") {
-			Speed = (float)(7 + waveNum * 0.15);
+			Speed = (float)(7 + waveNum * 0.2);
 			damgPlayer = (int)(10 + waveNum * 0.18);
 		} else if (name == "EnemyYellow(Clone)") {
-			Speed = (float)(5 + waveNum * 0.15);
+			Speed = (float)(5 + waveNum * 0.2);
 			damgPlayer = (int)(15 + waveNum * 0.18);
 		}
 	}
